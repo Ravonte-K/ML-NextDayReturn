@@ -1,0 +1,32 @@
+{
+  "project_name": "ml-nextday-return",
+  "data": {
+    "tickers_file": "configs/tickers.txt",
+    "start_date": "2016-01-01",
+    "end_date": "2025-12-31",
+    "raw_dir": "data/raw",
+    "processed_dir": "data/processed"
+  },
+  "target": {
+    "return_col": "y_return",
+    "direction_col": "y_dir"
+  },
+  "splits": {
+    "train_start": "2016-01-01",
+    "train_end": "2022-12-31",
+    "test_start": "2023-01-01",
+    "test_end": "2025-12-31"
+  },
+  "baselines": {
+    "rolling_mean_window": 20
+  },
+  "model": {
+    "task": "regression",
+    "family": "ridge",
+    "random_state": 42
+  },
+  "trading": {
+    "signal_threshold": 0.0,
+    "transaction_cost_bps": 10
+  }
+}
