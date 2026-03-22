@@ -17,7 +17,12 @@ def make_features(df: pd.DataFrame) -> pd.DataFrame:
     # df["SPYRETURN"] = 0.001 * pd.Series(range(len(df)), index=df.index)
     df["momentum"] = ((df["Close"].shift(1) - df["Close"].shift(10)) / df["Close"].shift(1))
     df['VOLUMEVS'] = (df["Volume"].shift(1) / df["avgvolume5"])
+
+# TURN TARGET INTO MONTH OUT UP OR DOWN AND CONSIDER MAKING A PRICE PREDICTION TARGET 
     df["target"] = (df["Close"].shift(-1) > df["Close"]).astype(int)
+
+
+
     df = df.dropna().reset_index(drop=True)
     print(df.head(20))
     return df
